@@ -49,7 +49,7 @@ def shorten_link(token, url, domain):
   }
   
   if domain:
-    payload += { "domain": domain }
+    payload["domain"] = domain
   
   url = 'https://api-ssl.bitly.com/v4/shorten'
   
@@ -69,7 +69,7 @@ def main():
   load_dotenv()
 
   token = os.getenv('BITLY_TOKEN')
-  domain = os.getenv('BYTLI_DOMAIN')
+  domain = os.getenv('BITLY_DOMAIN')
   
   parser = argparse.ArgumentParser(
         description="""Программа позволяет сократить ссылку или получить количество кликов по уже сокращенной
